@@ -44,6 +44,7 @@ public class FavoriteCharactersController {
     public FavoriteCharacters newFav(@RequestBody FavoriteCharacters favs){
         return  favRepo.save(favs);
     }
+    //Tested
     @DeleteMapping("deletefav/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable Integer id ){
         favRepo.findById(id)
