@@ -4,8 +4,8 @@ import com.example.databasemarvel.exceptions.ResourceNotFoundException;
 import com.example.databasemarvel.model.FavoriteCharacters;
 import com.example.databasemarvel.model.Users;
 import com.example.databasemarvel.repositories.FavoriteCharactersRepository;
-import com.example.databasemarvel.repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,7 +25,7 @@ public class FavoriteCharactersController {
     }
 
     // Tested
-    @GetMapping("favsbyid/{id}")
+    @GetMapping("favsbyuserid/{id}")
     public List<FavoriteCharacters> getUserById(@PathVariable String id) {
         List<FavoriteCharacters> list = favRepo.findAllByUserId(id);
         if (list.isEmpty())throw new ResourceNotFoundException("List not found");
@@ -37,5 +37,15 @@ public class FavoriteCharactersController {
     public FavoriteCharacters newFav(@RequestBody FavoriteCharacters favs){
         return  favRepo.save(favs);
     }
+    @DeleteMapping("deletefav/{id}")
+    public ResponseEntity<String> deleteUser(@PathVariable Integer id ){
+        favRepo.findById(id)
+                .orElseThrow(() ->  new ResourceNotFoundException("User not found "));
+        favRepo.deleteById(id);
+
+        return new ResponseEntity<>("Favorite "+id+" deleted", HttpStatus.OK);
+    }
+
+
 
 }

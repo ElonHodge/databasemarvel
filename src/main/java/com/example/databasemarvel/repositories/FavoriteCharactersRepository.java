@@ -7,8 +7,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.Optional;
 
-public interface FavoriteCharactersRepository  extends JpaRepository<FavoriteCharacters,String> {
+public interface FavoriteCharactersRepository  extends JpaRepository<FavoriteCharacters,Integer> {
 
 
     List<FavoriteCharacters> findAllByUserId(String Id);
+
 }
