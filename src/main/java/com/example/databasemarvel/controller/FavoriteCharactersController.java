@@ -32,6 +32,13 @@ public class FavoriteCharactersController {
 
         return favRepo.findAllByUserId(id);
     }
+    @GetMapping("favsbyid/{id}")
+    public List<FavoriteCharacters> getFavById(@PathVariable Integer id) {
+        List<FavoriteCharacters> list = favRepo.findAllByCharId(id);
+        if (list.isEmpty())throw new ResourceNotFoundException("List not found");
+
+        return favRepo.findAllByCharId(id);
+    }
     //Tested
     @PostMapping("addtofavs")
     public FavoriteCharacters newFav(@RequestBody FavoriteCharacters favs){
