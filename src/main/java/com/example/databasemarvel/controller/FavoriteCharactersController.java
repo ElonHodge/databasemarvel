@@ -24,7 +24,7 @@ public class FavoriteCharactersController {
         return favRepo.findAll();
     }
 
-
+    // Tested
     @GetMapping("favsbyid/{id}")
     public List<FavoriteCharacters> getUserById(@PathVariable String id) {
         List<FavoriteCharacters> list = favRepo.findAllByUserId(id);
