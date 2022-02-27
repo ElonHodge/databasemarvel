@@ -32,7 +32,7 @@ public class FavoriteCharactersController {
 
         return favRepo.findAllByUserId(id);
     }
-
+    //Tested
     @PostMapping("addtofavs")
     public FavoriteCharacters newFav(@RequestBody FavoriteCharacters favs){
         return  favRepo.save(favs);
