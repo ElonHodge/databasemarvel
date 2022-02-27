@@ -18,7 +18,7 @@ import java.util.List;
 public class FavoriteCharactersController {
     @Autowired
     private FavoriteCharactersRepository favRepo;
-
+    // Tested
     @GetMapping("allfavs")
     public List<FavoriteCharacters> getAllCharacters() {
         return favRepo.findAll();
