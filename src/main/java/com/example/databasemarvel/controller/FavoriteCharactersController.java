@@ -18,42 +18,44 @@ import java.util.List;
 public class FavoriteCharactersController {
     @Autowired
     private FavoriteCharactersRepository favRepo;
-    // Tested
+
     @GetMapping("allfavs")
     public List<FavoriteCharacters> getAllCharacters() {
         return favRepo.findAll();
     }
 
-    // Tested
     @GetMapping("favsbyuserid/{id}")
     public List<FavoriteCharacters> getUserById(@PathVariable String id) {
         List<FavoriteCharacters> list = favRepo.findAllByUserId(id);
-        if (list.isEmpty())throw new ResourceNotFoundException("List not found");
+        if (list.isEmpty()) throw new ResourceNotFoundException("List not found");
 
         return favRepo.findAllByUserId(id);
     }
+
     @GetMapping("favsbyid/{id}")
     public List<FavoriteCharacters> getFavById(@PathVariable Integer id) {
         List<FavoriteCharacters> list = favRepo.findAllByCharId(id);
-        if (list.isEmpty())throw new ResourceNotFoundException("List not found");
+        if (list.isEmpty()) throw new ResourceNotFoundException("List not found");
 
         return favRepo.findAllByCharId(id);
     }
-    //Tested
+
     @PostMapping("addtofavs")
-    public FavoriteCharacters newFav(@RequestBody FavoriteCharacters favs){
-        return  favRepo.save(favs);
+    public FavoriteCharacters newFav(@RequestBody FavoriteCharacters favs) {
+        return favRepo.save(favs);
     }
-    //Tested
+
+
+
+
     @DeleteMapping("deletefav/{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable Integer id ){
-        favRepo.findById(id)
-                .orElseThrow(() ->  new ResourceNotFoundException("User not found "));
+    public ResponseEntity<String> deleteUser(@PathVariable int id) {
+        String character = favRepo.getById(id).getCharName();
+
         favRepo.deleteById(id);
 
-        return new ResponseEntity<>("Favorite "+id+" deleted", HttpStatus.OK);
+        return new ResponseEntity<>("Favorite " + character + " deleted", HttpStatus.OK);
     }
-
 
 
 }

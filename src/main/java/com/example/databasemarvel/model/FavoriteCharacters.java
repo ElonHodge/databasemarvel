@@ -1,11 +1,9 @@
 package com.example.databasemarvel.model;
 
 import com.sun.istack.NotNull;
-import org.hibernate.annotations.Type;
-import org.springframework.data.annotation.Reference;
+import org.springframework.context.annotation.Primary;
 
 import javax.persistence.*;
-import java.util.List;
 
 
 @Entity
@@ -13,6 +11,12 @@ import java.util.List;
 public class FavoriteCharacters {
 
     @Id
+    @Column
+    @NotNull
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private  Integer favId;
+
+
     @Column
     @NotNull
     private Integer charId;
@@ -27,8 +31,16 @@ public class FavoriteCharacters {
     @Column
     private String charImage;
 
+    @Column
+    private String imageExtenstion;
 
+    public String getImageExtenstion() {
+        return imageExtenstion;
+    }
 
+    public void setImageExtenstion(String imageExtenstion) {
+        this.imageExtenstion = imageExtenstion;
+    }
 
     public Integer getCharId() {
         return charId;
@@ -60,5 +72,13 @@ public class FavoriteCharacters {
 
     public void setCharImage(String charImage) {
         this.charImage = charImage;
+    }
+
+    public Integer getFavId() {
+        return favId;
+    }
+
+    public void setFavId(Integer favId) {
+        this.favId = favId;
     }
 }

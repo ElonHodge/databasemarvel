@@ -13,4 +13,5 @@ public interface FavoriteCharactersRepository  extends JpaRepository<FavoriteCha
     List<FavoriteCharacters> findAllByUserId(String Id);
     List<FavoriteCharacters> findAllByCharId(Integer Id);
 
+    FavoriteCharacters  findByFavId(Integer Id);
 }
