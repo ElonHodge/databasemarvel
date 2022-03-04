@@ -40,4 +40,13 @@ FavoriteCharacters = {
 | Delete | /api/v1/deleteuser            | delete user           |
 | Put    | /api/v1/updateuser/{id}       | update user           |
 
+### Favorites Characters
+
+| Verb   | Path                     | Description              |
+|--------|--------------------------|--------------------------|
+| GET    | api/v1/allfavs           | shows all favorites      |
+| GET    | api/v1/favsbyuserid/{id} | show user by user id     |
+| GET    | api/v1/favsbyid/{id}     | show user by favorite id |
+| POST   | api/v1/addtofavs         | add to favorite          |
+| DELETE | api/v1/deletefav/{id}    | delete from favorite     |
 
