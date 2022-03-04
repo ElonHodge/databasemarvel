@@ -33,13 +33,13 @@ public class UserController {
     }
 
 
-    @GetMapping("userbyname/{firstname}")
-    public List<Users> getUserByUserName(@PathVariable String firstname) {
-        List<Users> usersList = usersRepository.findUsersByUserName(firstname);
+    @GetMapping("userbyname/{username}")
+    public List<Users> getUserByUserName(@PathVariable String username) {
+        List<Users> usersList = usersRepository.findUsersByUserName(username);
         if (usersList.isEmpty()) {
             throw new ResourceNotFoundException("Name not found");
         }
-        return usersRepository.findUsersByUserName(firstname);
+        return usersRepository.findUsersByUserName(username);
     }
 
     @GetMapping("userbyemail/{email}")
