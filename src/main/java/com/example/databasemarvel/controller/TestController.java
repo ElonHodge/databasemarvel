@@ -22,8 +22,8 @@ public class TestController {
     @Autowired
     private TestRepository testRepo;
 
-    @GetMapping("allusers")
-    public List<Test> getAllUsers() {
+    @GetMapping("test")
+    public List<Test> getAll() {
         return testRepo.findAll();
     }
 
