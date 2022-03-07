@@ -14,7 +14,6 @@
         <p class="lead">Current Endpoints</p>
     </div>
 
-
     <H1>Users</H1>
     <table class="table table-striped">
 
@@ -23,7 +22,6 @@
             <th scope="col">Verb</th>
             <th scope="col">Path</th>
             <th scope="col">Description</th>
-            <th scope="col">Test</th>
         </tr>
         </thead>
         <tbody>
@@ -31,41 +29,83 @@
             <td>GET</td>
             <td>/api/v1/allusers </td>
             <td>shows all users</td>
-            <td><a href="https://marveldatabasejava.herokuapp.com/api/v1/allusers" target="_blank" >View</a>
             </td>
         </tr>
         <tr>
             <td>GET</td>
-            <td>Thornton</td>
-            <td>@fat</td>
+            <td>/api/v1/userbyid/{id} </td>
+            <td>show individual user information</td>
         </tr>
         <tr>
             <td>GET</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
+            <td>/api/v1/userbyname/{username}</td>
+            <td>show user by username</td>
         </tr>
         <tr>
             <td>GET</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
+            <td>/api/v1/userbyemail/{email}</td>
+            <td>show user by email </td>
         </tr>
         <tr>
             <td>POST</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
+            <td>/api/v1/adduser </td>
+            <td>add user</td>
         </tr>
         <tr>
             <td>DELETE</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
+            <td>/api/v1/deleteuser  </td>
+            <td>delete user</td>
         </tr>
         <tr>
             <td>PUT</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
+            <td>/api/v1/updateuser/{id} </td>
+            <td>update user  </td>
         </tr>
         </tbody>
     </table>
+</div>
+
+</div>
+
+<H1>Favorites Characters</H1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Verb</th>
+        <th scope="col">Path</th>
+        <th scope="col">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>GET</td>
+        <td>api/v1/allfavs </td>
+        <td>shows all favorites </td>
+        </td>
+    </tr>
+    <tr>
+        <td>GET</td>
+        <td>api/v1/favsbyuserid/{id} </td>
+        <td>show favorite by user id  </td>
+    </tr>
+    <tr>
+        <td>GET</td>
+        <td>api/v1/favsbyid/{id} </td>
+        <td>show favorite by favorite id</td>
+    </tr>
+
+        <td>POST</td>
+        <td>/api/v1/addtofavs </td>
+        <td>add to favorite </td>
+    </tr>
+    <tr>
+        <td>DELETE</td>
+        <td>api/v1/deletefav/{id}</td>
+        <td>delete from favorite </td>
+    </tr>
+
+    </tbody>
+</table>
 </div>
 </body>
 
